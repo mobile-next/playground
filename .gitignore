@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/
+
+# iOS / Xcode
+ios/build/
+ios/DerivedData/
+**/*.xcuserstate
+**/xcuserdata/
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/*.iml
+android/**/*.iml
+android/.idea/caches/
+android/.idea/libraries/
+android/.idea/modules.xml
+android/.idea/workspace.xml
+android/.idea/navEditor.xml
+android/.idea/assetWizardSettings.xml
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
