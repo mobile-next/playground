@@ -1,4 +1,4 @@
-package com.mobilenext.mobilewright_demo
+package com.mobilenext.playground
 
 import android.app.DatePickerDialog
 import android.content.Intent

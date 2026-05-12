@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.mobilenext.mobilewright_demo"
+    namespace = "com.mobilenext.playground"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.mobilenext.mobilewright_demo"
+        applicationId = "com.mobilenext.playground"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

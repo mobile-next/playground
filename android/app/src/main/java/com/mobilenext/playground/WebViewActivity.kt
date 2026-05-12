@@ -1,4 +1,4 @@
-package com.mobilenext.mobilewright_demo
+package com.mobilenext.playground
 
 import android.os.Bundle
 import android.webkit.WebView

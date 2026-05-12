@@ -1,4 +1,4 @@
-package com.mobilenext.mobilewright_demo
+package com.mobilenext.playground
 
 import android.content.Intent
 import android.os.Bundle
