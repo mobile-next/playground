@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		2DBD150A2FB0D98700444FB9 /* mobilewright-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobilewright-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DBD150A2FB0D98700444FB9 /* playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2DBD150C2FB0D98700444FB9 /* playground */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "playground";
+			path = playground;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		2DBD15012FB0D98700444FB9 = {
 			isa = PBXGroup;
 			children = (
-				2DBD150C2FB0D98700444FB9 /* mobilewright-demo */,
+				2DBD150C2FB0D98700444FB9 /* playground */,
 				2DBD150B2FB0D98700444FB9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		2DBD150B2FB0D98700444FB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2DBD150A2FB0D98700444FB9 /* mobilewright-demo.app */,
+				2DBD150A2FB0D98700444FB9 /* playground.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2DBD15092FB0D98700444FB9 /* mobilewright-demo */ = {
+		2DBD15092FB0D98700444FB9 /* playground */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2DBD15152FB0D98800444FB9 /* Build configuration list for PBXNativeTarget "mobilewright-demo" */;
+			buildConfigurationList = 2DBD15152FB0D98800444FB9 /* Build configuration list for PBXNativeTarget "playground" */;
 			buildPhases = (
 				2DBD15062FB0D98700444FB9 /* Sources */,
 				2DBD15072FB0D98700444FB9 /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2DBD150C2FB0D98700444FB9 /* mobilewright-demo */,
+				2DBD150C2FB0D98700444FB9 /* playground */,
 			);
-			name = "mobilewright-demo";
+			name = playground;
 			packageProductDependencies = (
 			);
 			productName = "mobilewright-demo";
-			productReference = 2DBD150A2FB0D98700444FB9 /* mobilewright-demo.app */;
+			productReference = 2DBD150A2FB0D98700444FB9 /* playground.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2DBD15092FB0D98700444FB9 /* mobilewright-demo */,
+				2DBD15092FB0D98700444FB9 /* playground */,
 			);
 		};
 /* End PBXProject section */
@@ -320,7 +320,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2DBD15152FB0D98800444FB9 /* Build configuration list for PBXNativeTarget "mobilewright-demo" */ = {
+		2DBD15152FB0D98800444FB9 /* Build configuration list for PBXNativeTarget "playground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DBD15162FB0D98800444FB9 /* Debug */,
