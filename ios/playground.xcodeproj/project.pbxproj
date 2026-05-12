@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2DBD15052FB0D98700444FB9 /* Build configuration list for PBXProject "mobilewright-demo" */;
+			buildConfigurationList = 2DBD15052FB0D98700444FB9 /* Build configuration list for PBXProject "playground" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -311,7 +311,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2DBD15052FB0D98700444FB9 /* Build configuration list for PBXProject "mobilewright-demo" */ = {
+		2DBD15052FB0D98700444FB9 /* Build configuration list for PBXProject "playground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2DBD15132FB0D98800444FB9 /* Debug */,
