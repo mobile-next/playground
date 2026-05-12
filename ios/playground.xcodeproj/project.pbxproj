@@ -11,9 +11,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2DBD150C2FB0D98700444FB9 /* mobilewright-demo */ = {
+		2DBD150C2FB0D98700444FB9 /* playground */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "mobilewright-demo";
+			path = "playground";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
