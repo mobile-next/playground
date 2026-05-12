@@ -116,7 +116,7 @@ struct BasicUIScreen: View {
 
             Section("Share & Photos") {
                 ShareLink(item: URL(string: "https://mobilewright.dev")!) {
-                    Label("Share mobilewright.dev", systemImage: "square.and.arrow.up")
+                    Label("Share link", systemImage: "square.and.arrow.up")
                 }
                 .accessibilityIdentifier("share_link")
 
