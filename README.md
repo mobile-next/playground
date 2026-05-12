@@ -1,11 +1,11 @@
-# mobilewright-demo
+# playground
 
-A playground app for [Mobilewright](https://mobilewright.dev) — available for both iOS and Android. It exercises the full range of UI components, web view integration, and accessibility attributes so you can see exactly how Mobilewright behaves across platforms.
+A playground app for iOS and Android that exercises a wide range of native UI components, web view integration, and accessibility attributes.
 
 ## Structure
 
 ```
-mobilewright-demo/
+playground/
 ├── ios/        # SwiftUI app (Xcode project)
 └── android/    # Kotlin app (Gradle project)
 ```
@@ -15,7 +15,7 @@ Both implementations are feature-equivalent: same screens, same components, same
 ## Screens
 
 ### Home
-Displays the Mobilewright logo and navigation links to the two demo screens.
+Navigation links to the two demo screens.
 
 ### Basic UI
 A scrollable showcase of native components:
@@ -32,10 +32,10 @@ A scrollable showcase of native components:
 | Dialogs | Alert dialog, confirmation dialog, contextual menu |
 | Share / Photos | Share sheet + photo picker |
 
-Every element carries an accessibility identifier (iOS) or content description (Android), making the full screen testable with Mobilewright out of the box.
+Every element carries an accessibility identifier (iOS) or content description (Android).
 
 ### Web View
-Loads `https://mobilewright.dev` inside a native `WKWebView` (iOS) / `WebView` (Android) with JavaScript and DOM storage enabled.
+Loads a URL inside a native `WKWebView` (iOS) / `WebView` (Android) with JavaScript and DOM storage enabled.
 
 ## Building
 
@@ -44,7 +44,7 @@ Loads `https://mobilewright.dev` inside a native `WKWebView` (iOS) / `WebView` (
 Requirements: Xcode 15+, iOS 17+ simulator or device.
 
 ```
-open ios/mobilewright-demo.xcodeproj
+open ios/playground.xcodeproj
 ```
 
 Select a simulator or device and press Run (⌘R).
@@ -63,7 +63,3 @@ Or open the `android/` folder in Android Studio and run the `app` configuration.
 ## License
 
 Apache 2.0 — see [LICENSE](LICENSE).
-
-## Purpose
-
-This app is the reference target used when developing and testing Mobilewright. If a UI pattern works here, it works in Mobilewright. If something breaks, this is the first place to reproduce it.
