@@ -6,6 +6,7 @@
 
 # iOS / Xcode
 ios/Playground-*.zip
+ios/Playground-*.ipa
 ios/build/
 ios/DerivedData/
 **/*.xcuserstate
