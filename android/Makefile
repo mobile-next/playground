@@ -1,5 +1,6 @@
-APK_SRC = app/build/outputs/apk/debug/app-debug.apk
-APK_OUT = Playground.apk
+APK_SRC  = app/build/outputs/apk/debug/app-debug.apk
+VERSION ?= dev
+APK_OUT  = Playground-$(VERSION).apk
 
 .PHONY: all clean
 
@@ -11,4 +12,4 @@ $(APK_OUT):
 
 clean:
 	./gradlew clean
-	rm -f $(APK_OUT)
+	rm -f Playground-*.apk

@@ -5,14 +5,14 @@
 .claude/
 
 # iOS / Xcode
-ios/Playground.zip
+ios/Playground-*.zip
 ios/build/
 ios/DerivedData/
 **/*.xcuserstate
 **/xcuserdata/
 
 # Android
-android/Playground.apk
+android/Playground-*.apk
 android/.gradle/
 android/build/
 android/app/build/
