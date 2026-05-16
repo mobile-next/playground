@@ -23,5 +23,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.btn_web_view).setOnClickListener {
             startActivity(Intent(this, WebViewActivity::class.java))
         }
+
+        findViewById<LinearLayout>(R.id.btn_preferences).setOnClickListener {
+            startActivity(Intent(this, PreferencesActivity::class.java))
+        }
     }
 }

@@ -17,6 +17,7 @@ struct ContentView: View {
                 List {
                     NavigationLink("Basic UI", destination: BasicUIScreen())
                     NavigationLink("Web View", destination: WebViewScreen())
+                    NavigationLink("SharedPref / Keychain", destination: PreferencesScreen())
                 }
             }
             .navigationBarHidden(true)
