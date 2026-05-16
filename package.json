@@ -7,7 +7,7 @@
     "test:android": "npx mobilewright test --project android"
   },
   "dependencies": {
-    "@mobilewright/test": "^0.0.36",
-    "mobilewright": "^0.0.36"
+    "@mobilewright/test": "^0.0.37",
+    "mobilewright": "^0.0.37"
   }
 }
