@@ -14,21 +14,27 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Extract version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
+
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode.app
 
       - name: Build iOS simulator zip
-        run: make ios
+        run: make ios VERSION=${{ env.VERSION }}
 
       - name: Upload to release
         uses: softprops/action-gh-release@v3
         with:
-          files: ios/Playground.zip
+          files: ios/Playground-${{ env.VERSION }}.zip
 
   android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+
+      - name: Extract version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
 
       - name: Set up JDK
         uses: actions/setup-java@v4
@@ -37,9 +43,9 @@ jobs:
           distribution: 'temurin'
 
       - name: Build Android APK
-        run: make android
+        run: make android VERSION=${{ env.VERSION }}
 
       - name: Upload to release
         uses: softprops/action-gh-release@v3
         with:
-          files: android/Playground.apk
+          files: android/Playground-${{ env.VERSION }}.apk

@@ -2,8 +2,8 @@ SCHEME    = playground
 PROJECT   = playground.xcodeproj
 SDK       = iphonesimulator
 BUILD_DIR = build
-APP_NAME  = Playground
-ZIP_NAME  = Playground.zip
+VERSION  ?= dev
+ZIP_NAME  = Playground-$(VERSION).zip
 
 .PHONY: all clean
 
@@ -20,4 +20,4 @@ $(ZIP_NAME):
 	cd $(BUILD_DIR)/Build/Products/Debug-iphonesimulator && zip -r $(CURDIR)/$(ZIP_NAME) $(SCHEME).app
 
 clean:
-	rm -rf $(BUILD_DIR) $(ZIP_NAME)
+	rm -rf $(BUILD_DIR) Playground-*.zip
