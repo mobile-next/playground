@@ -1,0 +1,13 @@
+{
+  "name": "playground-ios-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npx mobilewright test",
+    "test:ios": "npx mobilewright test --config mobilewright.config.ts",
+    "test:android": "npx mobilewright test --config android.config.ts"
+  },
+  "dependencies": {
+    "@mobilewright/test": "^0.0.36",
+    "mobilewright": "^0.0.36"
+  }
+}
