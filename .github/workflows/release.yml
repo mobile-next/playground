@@ -20,13 +20,15 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode.app
 
-      - name: Build iOS simulator zip
+      - name: Build iOS artifacts
         run: make ios VERSION=${{ env.VERSION }}
 
       - name: Upload to release
         uses: softprops/action-gh-release@v3
         with:
-          files: ios/Playground-${{ env.VERSION }}.zip
+          files: |
+            ios/Playground-${{ env.VERSION }}.zip
+            ios/Playground-${{ env.VERSION }}.ipa
 
   android:
     runs-on: ubuntu-latest
