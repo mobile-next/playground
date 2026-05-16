@@ -4,14 +4,28 @@ const config: MobilewrightConfig = {
   testDir: '.',
   retries: 0,
   timeout: 120_000,
-  platform: 'ios',
   bundleId: 'com.mobilenext.playground',
   fullyParallel: true,
   workers: process.env.CI ? 2 : 1,
-  installApps: '../ios/Playground-dev.ipa',
   reporter: [
     ['list'],
     ['html', { outputFolder: 'mobilewright-report' }],
+  ],
+  projects: [
+    {
+      name: 'ios',
+      use: {
+        platform: 'ios',
+        installApps: 'ios/Playground-dev.zip',
+      },
+    },
+    {
+      name: 'android',
+      use: {
+        platform: 'android',
+        installApps: 'android/Playground-dev.apk',
+      },
+    },
   ],
 };
 

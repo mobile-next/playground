@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "test": "npx mobilewright test",
-    "test:ios": "npx mobilewright test --config mobilewright.config.ts",
-    "test:android": "npx mobilewright test --config android.config.ts"
+    "test:ios": "npx mobilewright test --project ios",
+    "test:android": "npx mobilewright test --project android"
   },
   "dependencies": {
     "@mobilewright/test": "^0.0.36",
