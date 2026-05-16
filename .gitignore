@@ -29,3 +29,5 @@ android/.idea/assetWizardSettings.xml
 android/captures/
 android/.externalNativeBuild/
 android/.cxx/
+node_modules
+mobilewright-report
