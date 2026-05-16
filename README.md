@@ -37,6 +37,16 @@ Every element carries an accessibility identifier (iOS) or content description (
 ### 🌐 Web View
 Loads a URL inside a native `WKWebView` (iOS) / `WebView` (Android) with JavaScript and DOM storage enabled.
 
+### 🔐 SharedPref / Keychain
+Save, load, and delete a username and password using platform-native storage:
+
+| Platform | Username | Password |
+|---|---|---|
+| iOS | Keychain (`kSecClassGenericPassword`) | Keychain (`kSecClassGenericPassword`) |
+| Android | `SharedPreferences` | `EncryptedSharedPreferences` (AES256-GCM) |
+
+Includes a reveal/hide toggle for the password field.
+
 ## 🔨 Building
 
 ### 🍎 iOS

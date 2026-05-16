@@ -32,6 +32,11 @@
             android:exported="true"
             android:label="Web View"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PreferencesActivity"
+            android:exported="false"
+            android:label="Preferences"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
