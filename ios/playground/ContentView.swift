@@ -18,6 +18,7 @@ struct ContentView: View {
                     NavigationLink("Basic UI", destination: BasicUIScreen())
                     NavigationLink("Web View", destination: WebViewScreen())
                     NavigationLink("SharedPref / Keychain", destination: PreferencesScreen())
+                    NavigationLink("Continuous Animation", destination: ContinuousAnimationScreen())
                 }
             }
             .navigationBarHidden(true)
