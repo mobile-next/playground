@@ -37,6 +37,11 @@
             android:exported="false"
             android:label="Preferences"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContinuousAnimationActivity"
+            android:exported="false"
+            android:label="Continuous Animation"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
