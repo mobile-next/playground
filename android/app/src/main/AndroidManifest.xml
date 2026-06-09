@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -41,6 +42,11 @@
             android:name=".ContinuousAnimationActivity"
             android:exported="false"
             android:label="Continuous Animation"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PermissionsActivity"
+            android:exported="false"
+            android:label="Permissions and Alerts"
             android:parentActivityName=".MainActivity" />
     </application>
 

@@ -31,5 +31,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.btn_continuous_animation).setOnClickListener {
             startActivity(Intent(this, ContinuousAnimationActivity::class.java))
         }
+
+        findViewById<LinearLayout>(R.id.btn_permissions).setOnClickListener {
+            startActivity(Intent(this, PermissionsActivity::class.java))
+        }
     }
 }
