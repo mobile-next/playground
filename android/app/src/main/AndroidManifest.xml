@@ -48,6 +48,18 @@
             android:exported="false"
             android:label="Permissions and Alerts"
             android:parentActivityName=".MainActivity" />
+<activity
+            android:name=".LoginSuccessfulActivity"
+            android:exported="true"
+            android:label="Login Successful"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="playground" android:host="login-successful" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

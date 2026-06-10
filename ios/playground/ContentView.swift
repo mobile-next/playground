@@ -1,8 +1,15 @@
 import SwiftUI
 
+enum AppRoute: Hashable {
+    case loginSuccessful(name: String)
+}
+
 struct ContentView: View {
+    @EnvironmentObject var router: AppRouter
+    @State private var path = NavigationPath()
+
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack(spacing: 0) {
                 AsyncImage(url: URL(string: "https://mobilewright.dev/mobilewright-logo.png")) { image in
                     image
@@ -23,10 +30,23 @@ struct ContentView: View {
                 }
             }
             .navigationBarHidden(true)
+            .navigationDestination(for: AppRoute.self) { route in
+                switch route {
+                case .loginSuccessful(let name):
+                    LoginSuccessfulScreen(name: name)
+                }
+            }
+        }
+        .onChange(of: router.loginSuccessfulName) { _, name in
+            if let name {
+                path.append(AppRoute.loginSuccessful(name: name))
+                router.loginSuccessfulName = nil
+            }
         }
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AppRouter())
 }
