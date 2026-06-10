@@ -1,6 +1,8 @@
 package com.mobilenext.playground
 
+import android.content.Intent
 import android.os.Bundle
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
@@ -15,9 +17,17 @@ class WebViewActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val webView = findViewById<WebView>(R.id.webview)
-        webView.webViewClient = WebViewClient()
+        webView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+                if (request.url.scheme == "playground") {
+                    startActivity(Intent(Intent.ACTION_VIEW, request.url))
+                    return true
+                }
+                return false
+            }
+        }
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
-        webView.loadUrl("https://mobilewright.dev")
+        webView.loadUrl("https://mobilewright.dev/samples/webview/?source=webview")
     }
 }

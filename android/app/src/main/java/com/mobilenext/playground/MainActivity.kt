@@ -35,5 +35,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<LinearLayout>(R.id.btn_permissions).setOnClickListener {
             startActivity(Intent(this, PermissionsActivity::class.java))
         }
+
+
     }
 }

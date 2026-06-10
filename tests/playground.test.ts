@@ -19,4 +19,8 @@ test.describe('main menu', () => {
     await expect(screen.getByText('Basic UI')).toBeVisible();
     await expect(screen.getByText('Web View')).toBeVisible();
   });
+
+  test('shows Deep Link item in the menu list', async ({ screen }) => {
+    await expect(screen.getByText('Deep Link')).toBeVisible();
+  });
 });
