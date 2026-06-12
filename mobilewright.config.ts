@@ -14,6 +14,7 @@ const config: MobilewrightConfig = {
   projects: [
     {
       name: 'ios',
+      testIgnore: 'tests/android/**',
       use: {
         platform: 'ios',
         installApps: 'ios/Playground-dev.zip',
@@ -21,6 +22,7 @@ const config: MobilewrightConfig = {
     },
     {
       name: 'android',
+      testIgnore: 'tests/ios/**',
       use: {
         platform: 'android',
         installApps: 'android/Playground-dev.apk',
