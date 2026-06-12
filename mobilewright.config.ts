@@ -29,10 +29,10 @@ const config: MobilewrightConfig = {
   ],
 };
 
-if (process.env['MOBILE_USE_API_KEY']) {
+if (process.env['MOBILENEXT_API_KEY']) {
   config.driver = {
-    type: 'mobile-use',
-    apiKey: process.env['MOBILE_USE_API_KEY'],
+    type: 'mobilenext',
+    apiKey: process.env['MOBILENEXT_API_KEY'],
   };
 }
 
