@@ -2,6 +2,14 @@
 <resources>
     <style name="Theme.Playground" parent="Theme.MaterialComponents.Light.NoActionBar" />
 
+    <!--
+      Light toolbar shared across screens: a surface-colored background with
+      the light theme's default dark title and navigation icon.
+    -->
+    <style name="Widget.Playground.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">?attr/colorSurface</item>
+    </style>
+
     <style name="SectionHeader">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">#6C6C72</item>
