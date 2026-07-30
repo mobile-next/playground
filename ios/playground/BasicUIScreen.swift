@@ -35,6 +35,9 @@ struct BasicUIScreen: View {
                     .accessibilityIdentifier("stepper")
                 Button("Reset Counter") { stepperValue = 0 }
                     .accessibilityIdentifier("button")
+                Button("Disabled Button") {}
+                    .disabled(true)
+                    .accessibilityIdentifier("disabled_button")
             }
 
             Section("Slider") {

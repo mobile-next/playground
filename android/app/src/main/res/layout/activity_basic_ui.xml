@@ -184,6 +184,21 @@
                 android:layout_height="56dp"
                 android:text="Reset Counter"
                 style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="14dp"
+                android:background="#E0E0E0" />
+
+            <Button
+                android:id="@+id/disabled_button"
+                android:contentDescription="disabled_button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Disabled Button"
+                android:enabled="false"
+                style="@style/Widget.MaterialComponents.Button.TextButton" />
         </LinearLayout>
 
         <!-- Slider -->
