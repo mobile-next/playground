@@ -76,6 +76,20 @@ struct BasicUIScreen: View {
                     .accessibilityIdentifier("activity_indicator")
             }
 
+            // container with accessibility identifier but not an accessibility
+            // element itself, reproduces https://github.com/mobile-next/mobilecli/issues/341
+            Section("Container") {
+                HStack(spacing: 12) {
+                    Image(systemName: "megaphone")
+                    Text("Interview starting soon")
+                    Spacer()
+                    Button("Join") {}
+                        .accessibilityIdentifier("interview_join_button")
+                }
+                .accessibilityElement(children: .contain)
+                .accessibilityIdentifier("interviewBannerView")
+            }
+
             Section("Labels") {
                 Label("Info label", systemImage: "info.circle")
                     .accessibilityIdentifier("label")
