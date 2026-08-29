@@ -4,6 +4,12 @@
 # Claude Code
 .claude/
 
+# Mobilewright tests (Node)
+node_modules/
+/test-results
+/mobilewright-report
+/playwright-report
+
 # iOS / Xcode
 ios/Playground-*.zip
 ios/Playground-*.ipa

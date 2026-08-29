@@ -1,0 +1,14 @@
+{
+  "name": "playground-mobilewright-tests",
+  "private": true,
+  "description": "Mobilewright end-to-end tests for the Playground app",
+  "scripts": {
+    "test": "mobilewright test"
+  },
+  "devDependencies": {
+    "@mobilewright/test": "0.0.22",
+    "@types/node": "latest",
+    "mobilewright": "0.0.22",
+    "typescript": "^5.4.0"
+  }
+}
