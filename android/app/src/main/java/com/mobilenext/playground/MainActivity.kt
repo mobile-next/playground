@@ -36,6 +36,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PermissionsActivity::class.java))
         }
 
+        findViewById<LinearLayout>(R.id.btn_location).setOnClickListener {
+            startActivity(Intent(this, LocationActivity::class.java))
+        }
+
 
     }
 }
