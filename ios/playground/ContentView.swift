@@ -27,6 +27,7 @@ struct ContentView: View {
                     NavigationLink("SharedPref / Keychain", destination: PreferencesScreen())
                     NavigationLink("Continuous Animation", destination: ContinuousAnimationScreen())
                     NavigationLink("Permissions and Alerts", destination: PermissionsScreen())
+                    NavigationLink("GPS Location", destination: LocationScreen())
                 }
             }
             .navigationBarHidden(true)
