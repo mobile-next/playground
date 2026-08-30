@@ -51,7 +51,6 @@ class LocationActivity : AppCompatActivity(), LocationListener {
             return
         }
 
-        // ponytail: plain LocationManager, no play-services-location dependency
         val manager = getSystemService(LOCATION_SERVICE) as LocationManager
         manager.getLastKnownLocation(LocationManager.GPS_PROVIDER)?.let { onLocationChanged(it) }
         manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000L, 0f, this)
@@ -69,10 +68,9 @@ class LocationActivity : AppCompatActivity(), LocationListener {
         showOnMap(location.latitude, location.longitude)
     }
 
-    // ponytail: openstreetmap embed needs no api key, google maps sdk would
     private fun showOnMap(latitude: Double, longitude: Double) {
         val delta = 0.01
-        // ponytail: 4 decimals is ~11m, enough to keep gps jitter from reloading the map
+        // 4 decimals is ~11m, enough to keep gps jitter from reloading the map
         val bbox = String.format(
             "%.4f,%.4f,%.4f,%.4f",
             longitude - delta, latitude - delta, longitude + delta, latitude + delta
@@ -80,7 +78,7 @@ class LocationActivity : AppCompatActivity(), LocationListener {
         val marker = String.format("%.4f,%.4f", latitude, longitude)
         val url = "https://www.openstreetmap.org/export/embed.html?bbox=$bbox&marker=$marker"
 
-        // ponytail: location updates tick every second, only reload when the map actually moved
+        // location updates tick every second, only reload when the map actually moved
         if (url == mapUrl) {
             return
         }

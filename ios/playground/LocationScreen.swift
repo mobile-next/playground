@@ -8,7 +8,6 @@ struct LocationScreen: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // ponytail: MapKit needs no api key, unlike google maps on android
             Map(position: $locationProvider.cameraPosition) {
                 UserAnnotation()
             }
