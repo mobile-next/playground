@@ -1,5 +1,7 @@
 # 🛝 Playground
 
+<img src="ios/playground/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="Playground app icon" width="128" height="128" align="right">
+
 Playground for iOS and Android is an app that exercises a wide range of native UI components, web view integration, and accessibility attributes.
 
 ## 🗂️ Structure
