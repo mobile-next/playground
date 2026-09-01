@@ -23,9 +23,13 @@ jobs:
       - name: Build iOS artifacts
         run: make ios VERSION=${{ env.VERSION }}
 
+      - name: Extract release notes from CHANGELOG.md
+        run: awk -v tag="${{ env.VERSION }}" '/^## \[/{f = ($0 ~ "^## \\[" tag "\\]")} f' CHANGELOG.md > release-notes.md
+
       - name: Upload to release
         uses: softprops/action-gh-release@v3
         with:
+          body_path: release-notes.md
           files: |
             ios/Playground-${{ env.VERSION }}.zip
             ios/Playground-${{ env.VERSION }}.ipa
@@ -47,7 +51,11 @@ jobs:
       - name: Build Android APK
         run: make android VERSION=${{ env.VERSION }}
 
+      - name: Extract release notes from CHANGELOG.md
+        run: awk -v tag="${{ env.VERSION }}" '/^## \[/{f = ($0 ~ "^## \\[" tag "\\]")} f' CHANGELOG.md > release-notes.md
+
       - name: Upload to release
         uses: softprops/action-gh-release@v3
         with:
+          body_path: release-notes.md
           files: android/Playground-${{ env.VERSION }}.apk
