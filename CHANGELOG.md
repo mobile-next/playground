@@ -1,3 +1,8 @@
+## [1.0.7](https://github.com/mobile-next/playground/releases/tag/v1.0.7) (2026-10-02)
+* Feat: App alerts (simple, confirm, three-button, prompt, delayed) and Location/Notifications permission requests on Android ([#21](https://github.com/mobile-next/playground/pull/21))
+* Feat: App alerts and Location/Notifications permission requests on iOS ([#22](https://github.com/mobile-next/playground/pull/22))
+* Feat: Action sheet and bottom sheet on the Permissions and Alerts screen ([#23](https://github.com/mobile-next/playground/pull/23))
+
 ## [1.0.6](https://github.com/mobile-next/playground/releases/tag/v1.0.6) (2026-09-01)
 * Feat: GPS location screen on both platforms ([#18](https://github.com/mobile-next/playground/pull/18))
 * Feat: Shake detection screen ([#16](https://github.com/mobile-next/playground/pull/16))
