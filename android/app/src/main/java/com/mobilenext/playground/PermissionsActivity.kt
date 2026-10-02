@@ -8,12 +8,14 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class PermissionsActivity : AppCompatActivity() {
 
@@ -48,6 +50,8 @@ class PermissionsActivity : AppCompatActivity() {
         findViewById<Button>(R.id.show_confirm_alert_button).setOnClickListener { showConfirmAlert() }
         findViewById<Button>(R.id.show_three_button_alert_button).setOnClickListener { showThreeButtonAlert() }
         findViewById<Button>(R.id.show_prompt_alert_button).setOnClickListener { showPromptAlert() }
+        findViewById<Button>(R.id.show_action_sheet_button).setOnClickListener { showActionSheet() }
+        findViewById<Button>(R.id.show_bottom_sheet_button).setOnClickListener { showBottomSheet() }
         findViewById<Button>(R.id.show_delayed_alert_button).setOnClickListener {
             alertResultText.text = "Waiting for alert"
             Handler(Looper.getMainLooper()).postDelayed({ showSimpleAlert() }, delayedAlertMillis)
@@ -107,6 +111,34 @@ class PermissionsActivity : AppCompatActivity() {
             .setNeutralButton("Later") { _, _ -> alertResultText.text = "Later" }
             .setCancelable(false)
             .show()
+    }
+
+    private val sheetColors = arrayOf("Red", "Green", "Blue")
+
+    private fun showActionSheet() {
+        AlertDialog.Builder(this)
+            .setTitle("Choose a Color")
+            .setItems(sheetColors) { _, which -> alertResultText.text = sheetColors[which] }
+            .setNegativeButton("Cancel") { _, _ -> alertResultText.text = "Cancel" }
+            .setCancelable(false)
+            .show()
+    }
+
+    private fun showBottomSheet() {
+        val sheet = BottomSheetDialog(this)
+        val options = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        sheetColors.forEach { color ->
+            options.addView(Button(this).apply {
+                text = color
+                setOnClickListener {
+                    alertResultText.text = color
+                    sheet.dismiss()
+                }
+            })
+        }
+        sheet.setContentView(options)
+        sheet.setOnCancelListener { alertResultText.text = "Cancel" }
+        sheet.show()
     }
 
     private fun showPromptAlert() {

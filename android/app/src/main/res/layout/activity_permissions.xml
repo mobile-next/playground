@@ -224,6 +224,20 @@
                         android:text="Show Alert in 2 Seconds"
                         android:contentDescription="show_delayed_alert_button" />
 
+                    <Button
+                        android:id="@+id/show_action_sheet_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Show Action Sheet"
+                        android:contentDescription="show_action_sheet_button" />
+
+                    <Button
+                        android:id="@+id/show_bottom_sheet_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Show Bottom Sheet"
+                        android:contentDescription="show_bottom_sheet_button" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
