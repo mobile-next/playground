@@ -15,6 +15,7 @@ struct PermissionsScreen: View {
     @State private var showThreeButtonAlert = false
     @State private var showPromptAlert = false
     @State private var promptName = ""
+    @State private var showActionSheet = false
 
     private let delayedAlertSeconds = 2.0
 
@@ -72,6 +73,8 @@ struct PermissionsScreen: View {
                     }
                 }
                 .accessibilityIdentifier("show_delayed_alert_button")
+                Button("Show Action Sheet") { showActionSheet = true }
+                    .accessibilityIdentifier("show_action_sheet_button")
             }
         }
         .navigationTitle("Permissions")
@@ -97,6 +100,14 @@ struct PermissionsScreen: View {
             Button("Later", role: .cancel) { alertResult = "Later" }
         } message: {
             Text("Pick one of three options")
+        }
+        .confirmationDialog("Choose a Color", isPresented: $showActionSheet, titleVisibility: .visible) {
+            Button("Red") { alertResult = "Red" }
+            Button("Green") { alertResult = "Green" }
+            Button("Blue") { alertResult = "Blue" }
+            Button("Cancel", role: .cancel) { alertResult = "Cancel" }
+        } message: {
+            Text("Pick a color for the sheet")
         }
         .alert("Prompt Alert", isPresented: $showPromptAlert) {
             TextField("Name", text: $promptName)
