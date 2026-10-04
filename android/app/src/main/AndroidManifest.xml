@@ -55,7 +55,17 @@
             android:exported="false"
             android:label="GPS Location"
             android:parentActivityName=".MainActivity" />
-<activity
+        <activity
+            android:name=".LaunchInfoActivity"
+            android:exported="true"
+            android:label="Launch Info"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="com.mobilenext.playground.LAUNCH_INFO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".LoginSuccessfulActivity"
             android:exported="true"
             android:label="Login Successful"

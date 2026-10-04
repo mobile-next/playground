@@ -28,6 +28,7 @@ struct ContentView: View {
                     NavigationLink("Continuous Animation", destination: ContinuousAnimationScreen())
                     NavigationLink("Permissions and Alerts", destination: PermissionsScreen())
                     NavigationLink("GPS Location", destination: LocationScreen())
+                    NavigationLink("Launch Info", destination: LaunchInfoScreen())
                 }
             }
             .navigationBarHidden(true)
