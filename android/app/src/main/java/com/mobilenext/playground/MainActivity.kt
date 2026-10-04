@@ -51,6 +51,10 @@ class MainActivity : AppCompatActivity(), ShakeDetector.Listener {
             startActivity(Intent(this, LocationActivity::class.java))
         }
 
+        // Show the intent this activity was launched with, not the one that opens the screen.
+        findViewById<LinearLayout>(R.id.btn_launch_info).setOnClickListener {
+            startActivity(Intent(this, LaunchInfoActivity::class.java).putExtra(LaunchInfoActivity.EXTRA_LAUNCH_INTENT, intent))
+        }
 
     }
 
