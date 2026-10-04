@@ -1,3 +1,6 @@
+## [1.0.8](https://github.com/mobile-next/playground/releases/tag/v1.0.8) (2026-10-04)
+* Feat: Launch Info screen on both platforms, listing the intent action, data and extras (Android) or process arguments and environment variables (iOS) the app was launched with ([#25](https://github.com/mobile-next/playground/pull/25))
+
 ## [1.0.7](https://github.com/mobile-next/playground/releases/tag/v1.0.7) (2026-10-02)
 * Feat: App alerts (simple, confirm, three-button, prompt, delayed) and Location/Notifications permission requests on Android ([#21](https://github.com/mobile-next/playground/pull/21))
 * Feat: App alerts and Location/Notifications permission requests on iOS ([#22](https://github.com/mobile-next/playground/pull/22))
