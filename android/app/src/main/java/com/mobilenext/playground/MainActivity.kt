@@ -56,6 +56,10 @@ class MainActivity : AppCompatActivity(), ShakeDetector.Listener {
             startActivity(Intent(this, LaunchInfoActivity::class.java).putExtra(LaunchInfoActivity.EXTRA_LAUNCH_INTENT, intent))
         }
 
+        findViewById<LinearLayout>(R.id.btn_network).setOnClickListener {
+            startActivity(Intent(this, NetworkActivity::class.java))
+        }
+
     }
 
     override fun onResume() {
