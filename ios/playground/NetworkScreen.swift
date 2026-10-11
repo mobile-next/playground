@@ -1,4 +1,5 @@
 import SwiftUI
+import Alamofire
 
 // The app's own URLSession, built at launch the way most apps keep one around, so a tool
 // that attaches later meets a session that already exists. URLSession.shared is the
@@ -11,6 +12,7 @@ enum NetworkClients {
     }()
 
     static let getURL = URL(string: "https://jsonplaceholder.typicode.com/todos/1")!
+    static let httpGetURL = URL(string: "http://jsonplaceholder.typicode.com/todos/1")!
     static let postURL = URL(string: "https://jsonplaceholder.typicode.com/posts")!
     static let postBody = #"{"title":"playground","body":"hello","userId":1}"#
 }
@@ -26,6 +28,9 @@ struct NetworkScreen: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Button("URLSession.shared GET") { sharedGet() }
+            Button("URLSession HTTP GET") { sessionGet(NetworkClients.httpGetURL, label: "session HTTP GET") }
+            Button("Alamofire HTTPS GET") { alamofireGet(NetworkClients.getURL, label: "alamofire HTTPS GET") }
+            Button("Alamofire HTTP GET") { alamofireGet(NetworkClients.httpGetURL, label: "alamofire HTTP GET") }
             Button("URLSession.shared POST") { Task { await sharedPost() } }
             Button("Custom session GET") { customGet() }
 
@@ -43,11 +48,21 @@ struct NetworkScreen: View {
 
     // completion-handler style on the shared session
     private func sharedGet() {
-        let label = "shared GET"
+        sessionGet(NetworkClients.getURL, label: "shared GET")
+    }
+
+    private func sessionGet(_ url: URL, label: String) {
         result = "\(label) pending"
-        URLSession.shared.dataTask(with: NetworkClients.getURL) { data, response, error in
+        URLSession.shared.dataTask(with: url) { data, response, error in
             show(label, data: data, response: response, error: error)
         }.resume()
+    }
+
+    private func alamofireGet(_ url: URL, label: String) {
+        result = "\(label) pending"
+        AF.request(url).responseData { response in
+            self.show(label, data: response.data, response: response.response, error: response.error)
+        }
     }
 
     // async/await style on the shared session

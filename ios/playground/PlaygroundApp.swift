@@ -1,4 +1,5 @@
 import SwiftUI
+import Alamofire
 
 @main
 struct PlaygroundApp: App {
@@ -7,6 +8,7 @@ struct PlaygroundApp: App {
     init() {
         // static lets are lazy; touch the session so it exists from launch
         _ = NetworkClients.customSession
+        _ = AF
     }
 
     var body: some Scene {
