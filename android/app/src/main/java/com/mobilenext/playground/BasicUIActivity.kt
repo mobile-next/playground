@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
@@ -37,6 +38,7 @@ class BasicUIActivity : AppCompatActivity() {
         setupShareButton()
         setupPhotosPicker()
         setupDragAndDrop()
+        setupDoubleTapButton()
         setupLink()
     }
 
@@ -161,7 +163,7 @@ class BasicUIActivity : AppCompatActivity() {
         var isDragging = false
 
         dragBox.setOnClickListener {
-            showDragAndDropDialog("Drag this box into the dotted box on the right.") { }
+            showMessageDialog("Drag this box into the dotted box on the right.") { }
         }
 
         dragBox.setOnTouchListener { view, event ->
@@ -190,7 +192,7 @@ class BasicUIActivity : AppCompatActivity() {
                     if (!isDragging) {
                         view.performClick()
                     } else if (isCenterInside(view, dropTarget)) {
-                        showDragAndDropDialog("You score one point.") { returnToStart(view) }
+                        showMessageDialog("You score one point.") { returnToStart(view) }
                     } else {
                         // a box left outside its section can no longer receive touches, so a miss goes home
                         returnToStart(view)
@@ -199,6 +201,27 @@ class BasicUIActivity : AppCompatActivity() {
                 MotionEvent.ACTION_CANCEL -> returnToStart(view)
             }
             true
+        }
+    }
+
+    private fun setupDoubleTapButton() {
+        val tapDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+            // only fires once the double tap timeout passed without a second tap
+            override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
+                showMessageDialog("Nope, that was a single tap") { }
+                return true
+            }
+
+            override fun onDoubleTap(e: MotionEvent): Boolean {
+                showMessageDialog("Yay! Double tap!") { }
+                return true
+            }
+        })
+
+        findViewById<Button>(R.id.double_tap_button).setOnTouchListener { _, event ->
+            tapDetector.onTouchEvent(event)
+            // not consumed, so the button still shows its pressed state
+            false
         }
     }
 
@@ -217,7 +240,7 @@ class BasicUIActivity : AppCompatActivity() {
             centerY in targetLocation[1]..(targetLocation[1] + target.height)
     }
 
-    private fun showDragAndDropDialog(message: String, onDismissed: () -> Unit) {
+    private fun showMessageDialog(message: String, onDismissed: () -> Unit) {
         AlertDialog.Builder(this)
             .setMessage(message)
             .setCancelable(false)
