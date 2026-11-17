@@ -145,6 +145,10 @@ struct BasicUIScreen: View {
                 }
                 .accessibilityIdentifier("photos_picker")
             }
+
+            Section("Drag and Drop") {
+                DragAndDropRow()
+            }
         }
         .navigationTitle("Basic UI")
         .navigationBarTitleDisplayMode(.inline)
