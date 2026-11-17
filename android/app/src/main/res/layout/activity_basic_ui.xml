@@ -27,6 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingBottom="32dp">
@@ -602,6 +604,39 @@
                 android:text="Select Photo"
                 style="@style/Widget.MaterialComponents.Button.TextButton" />
         </LinearLayout>
+
+        <!-- Drag and Drop -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Drag and Drop"
+            style="@style/SectionHeader" />
+
+        <!-- drop_target is declared first so drag_box draws on top of it -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:background="#FFFFFF">
+
+            <View
+                android:id="@+id/drop_target"
+                android:contentDescription="drop_target"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="end"
+                android:background="@drawable/drop_target_dotted" />
+
+            <View
+                android:id="@+id/drag_box"
+                android:contentDescription="drag_box"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="start|center_vertical"
+                android:background="#FF3B30" />
+        </FrameLayout>
 
     </LinearLayout>
     </ScrollView>
