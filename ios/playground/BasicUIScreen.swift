@@ -15,6 +15,8 @@ struct BasicUIScreen: View {
     @State private var showConfirmation = false
     @State private var selectedPhoto: PhotosPickerItem? = nil
     @State private var menuLastAction = "None"
+    @State private var tapMessage = ""
+    @State private var isTapMessageShown = false
 
     var body: some View {
         Form {
@@ -149,9 +151,37 @@ struct BasicUIScreen: View {
             Section("Drag and Drop") {
                 DragAndDropRow()
             }
+
+            Section("Double Tap") {
+                // a Text, not a Button: a Button would fire its action on the first tap of a double tap
+                Text("Double Tap Me")
+                    .foregroundColor(.accentColor)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
+                    .gesture(
+                        TapGesture(count: 2)
+                            .exclusively(before: TapGesture())
+                            .onEnded { tap in
+                                switch tap {
+                                case .first: show("Yay! Double tap!")
+                                case .second: show("Nope, that was a single tap")
+                                }
+                            }
+                    )
+                    .accessibilityAddTraits(.isButton)
+                    .accessibilityIdentifier("double_tap_button")
+                    .alert(tapMessage, isPresented: $isTapMessageShown) {
+                        Button("OK") {}
+                    }
+            }
         }
         .navigationTitle("Basic UI")
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private func show(_ message: String) {
+        tapMessage = message
+        isTapMessageShown = true
     }
 }
 
