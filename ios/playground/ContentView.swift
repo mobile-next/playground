@@ -30,6 +30,7 @@ struct ContentView: View {
                     NavigationLink("Permissions and Alerts", destination: PermissionsScreen())
                     NavigationLink("GPS Location", destination: LocationScreen())
                     NavigationLink("Launch Info", destination: LaunchInfoScreen())
+                    NavigationLink("Presented View Controller", destination: PresentedScreen())
                     NavigationLink("Network", destination: NetworkScreen())
                 }
             }
