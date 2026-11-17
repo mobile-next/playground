@@ -28,6 +28,11 @@ struct DeepLinkWebView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
+        #if DEBUG
+        if #available(iOS 16.4, *) {
+            webView.isInspectable = true
+        }
+        #endif
         webView.navigationDelegate = context.coordinator
         webView.load(URLRequest(url: url))
         return webView

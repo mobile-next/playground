@@ -2,6 +2,7 @@ import SwiftUI
 
 enum AppRoute: Hashable {
     case loginSuccessful(name: String)
+    case network
 }
 
 struct ContentView: View {
@@ -30,6 +31,7 @@ struct ContentView: View {
                     NavigationLink("GPS Location", destination: LocationScreen())
                     NavigationLink("Launch Info", destination: LaunchInfoScreen())
                     NavigationLink("Presented View Controller", destination: PresentedScreen())
+                    NavigationLink("Network", destination: NetworkScreen())
                 }
             }
             .navigationBarHidden(true)
@@ -37,6 +39,8 @@ struct ContentView: View {
                 switch route {
                 case .loginSuccessful(let name):
                     LoginSuccessfulScreen(name: name)
+                case .network:
+                    NetworkScreen()
                 }
             }
         }
@@ -44,6 +48,12 @@ struct ContentView: View {
             if let name {
                 path.append(AppRoute.loginSuccessful(name: name))
                 router.loginSuccessfulName = nil
+            }
+        }
+        .onChange(of: router.showNetwork) { _, show in
+            if show {
+                path.append(AppRoute.network)
+                router.showNetwork = false
             }
         }
     }

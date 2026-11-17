@@ -4,7 +4,11 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewConfiguration
 import android.widget.*
+import kotlin.math.hypot
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +36,7 @@ class BasicUIActivity : AppCompatActivity() {
         setupMenu()
         setupShareButton()
         setupPhotosPicker()
+        setupDragAndDrop()
         setupLink()
     }
 
@@ -143,6 +148,84 @@ class BasicUIActivity : AppCompatActivity() {
         findViewById<Button>(R.id.photos_picker).setOnClickListener {
             pickImage.launch("image/*")
         }
+    }
+
+    private fun setupDragAndDrop() {
+        val dragBox = findViewById<View>(R.id.drag_box)
+        val dropTarget = findViewById<View>(R.id.drop_target)
+        val touchSlop = ViewConfiguration.get(this).scaledTouchSlop
+        var downRawX = 0f
+        var downRawY = 0f
+        var startTranslationX = 0f
+        var startTranslationY = 0f
+        var isDragging = false
+
+        dragBox.setOnClickListener {
+            showDragAndDropDialog("Drag this box into the dotted box on the right.") { }
+        }
+
+        dragBox.setOnTouchListener { view, event ->
+            when (event.actionMasked) {
+                MotionEvent.ACTION_DOWN -> {
+                    downRawX = event.rawX
+                    downRawY = event.rawY
+                    startTranslationX = view.translationX
+                    startTranslationY = view.translationY
+                    isDragging = false
+                    // keep the ScrollView from stealing the gesture
+                    view.parent.requestDisallowInterceptTouchEvent(true)
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    val deltaX = event.rawX - downRawX
+                    val deltaY = event.rawY - downRawY
+                    if (!isDragging && hypot(deltaX, deltaY) > touchSlop) {
+                        isDragging = true
+                    }
+                    if (isDragging) {
+                        view.translationX = startTranslationX + deltaX
+                        view.translationY = startTranslationY + deltaY
+                    }
+                }
+                MotionEvent.ACTION_UP -> {
+                    if (!isDragging) {
+                        view.performClick()
+                    } else if (isCenterInside(view, dropTarget)) {
+                        showDragAndDropDialog("You score one point.") { returnToStart(view) }
+                    } else {
+                        // a box left outside its section can no longer receive touches, so a miss goes home
+                        returnToStart(view)
+                    }
+                }
+                MotionEvent.ACTION_CANCEL -> returnToStart(view)
+            }
+            true
+        }
+    }
+
+    private fun returnToStart(box: View) {
+        box.animate().translationX(0f).translationY(0f).start()
+    }
+
+    private fun isCenterInside(box: View, target: View): Boolean {
+        val boxLocation = IntArray(2)
+        val targetLocation = IntArray(2)
+        box.getLocationOnScreen(boxLocation)
+        target.getLocationOnScreen(targetLocation)
+        val centerX = boxLocation[0] + box.width / 2
+        val centerY = boxLocation[1] + box.height / 2
+        return centerX in targetLocation[0]..(targetLocation[0] + target.width) &&
+            centerY in targetLocation[1]..(targetLocation[1] + target.height)
+    }
+
+    private fun showDragAndDropDialog(message: String, onDismissed: () -> Unit) {
+        AlertDialog.Builder(this)
+            .setMessage(message)
+            .setCancelable(false)
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+                onDismissed()
+            }
+            .show()
     }
 
     private fun setupLink() {
